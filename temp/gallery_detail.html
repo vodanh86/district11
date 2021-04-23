@@ -1,0 +1,202 @@
+<script type="text/javascript">
+    $('.album-details-list').magnificPopup({
+        delegate: '.album-details-content a',
+        type: 'image',
+        tLoading: 'Đang tải ảnh #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        closeOnBgClick: false,
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            tError: '<a href="%url%">Ảnh #%curr%</a> không thể tải.',
+            titleSrc: function(item) {
+                console.log('title:', item.el.attr('title'));
+                return item.el.attr('title');
+            }
+        },
+        callbacks: {
+            open: function() {
+                $('.pp-viewing-page-item-gallery .mfp-close').html('<span>Đóng</span>').before('<button class="mfp-full-screen"><span>Xem toàn màn hình</span></button>');
+                $('.pp-viewing-page-item-gallery').removeClass('is-show-full');
+
+                var $gallery = $('.album-details-list');
+                var $result = '';
+                if ($gallery.find('.album-details-content').length>0) {
+                    $result = '<div class="mfp-pager">' +
+                        '<div class="wrap-dots">' +
+                        '<div class="dots owl-carousel">';
+                    for (var i=0; i < $gallery.find('.album-details-content').length; i++) {
+                        var $cl_active = ' class="item"';
+                        var $thumb = $gallery.find('.album-details-content:eq('+i+')').find('img').attr('src');
+                        $result += '<div'+ $cl_active +'>'+
+                            '<button type="button" onclick="javascript:$(\'.album-details-list\').magnificPopup(\'goTo\', '+i+');return false;"><img src="' + $thumb + '" width="50"></button>' +
+                            '</div>';
+                    }
+                    $result += '</div>'+
+                        '</div>'+
+                        '</div>';
+                }
+
+                $('.mfp-figure').append($result);
+                $('.mfp-pager .dots').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    items: 8,
+                    nav: true,
+                    navText: ["<img src='assets/img/icon_slide_left.svg'>", "<img src='assets/img/icon_slide_right.svg'>"],
+                    dots: false,
+                    responsive: {
+                        0: {
+                            items: 3,
+                            nav: true,
+                            dots: false,
+                            margin: 20
+                        },
+                        480: {
+                            items: 8,
+                            margin: 20
+                        }
+                    },
+                });
+            }
+        }
+    });
+</script>
+
+<!--  page reflect -->
+<div id="page-item-reflect" >
+    <div class="content-reflect">
+        <!-- Menu Top  -->
+        <div class="container">
+            <div class="page-breadcrumb-wrap">
+                <ol class="breadcrumb all-title-top">
+                    <li class="bread-back"><a href="#" data-pi-slide="page-item-slide-2"></a></li>
+                    <li class="home"><a href="#"><span>Trang chủ</span></a></li>
+                    <li class="item"><a href="#"><span>Thư viện ảnh và video</span></a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- Content  -->
+    <div class="container">
+        <div class="album-details scroll-enable">
+            <div class="album-details-block row">
+                <div class="album-details-title col-md-12">
+                    <h2>Khánh thành trụ sở UBND Quận 11 mới</h2>
+                    <ul>
+                        <li>
+                            <img src="./assets/img/icon_calendar_3.svg">
+                            <span>12/11/2020</span>
+                        </li>
+                        <li>
+                            <img src="./assets/img/icon_image.svg">
+                            <span>24</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="album-details-list">
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/1024x360/95dce7" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a1.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/1024x360/334533" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a2.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/3024x760/95dce7" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a3.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/1024x360/123331" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a4.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/3024x1660/231900" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a5.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="http://placehold.it/2024x760/ddeeee" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a6.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a7.jpg" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a7.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a8.jpg" title="Cô gái đọc thông báo tại một khu tập thể cũ">
+                            <img src="./resources/media/chitietalbum/a8.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a1.jpg">
+                            <img src="./resources/media/chitietalbum/a1.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a2.jpg">
+                            <img src="./resources/media/chitietalbum/a2.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a3.jpg">
+                            <img src="./resources/media/chitietalbum/a3.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a4.jpg">
+                            <img src="./resources/media/chitietalbum/a4.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a5.jpg">
+                            <img src="./resources/media/chitietalbum/a5.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a6.jpg">
+                            <img src="./resources/media/chitietalbum/a6.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a7.jpg">
+                            <img src="./resources/media/chitietalbum/a7.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                    <div class="album-details-content col-md-3">
+                        <a href="resources/media/chitietalbum/a8.jpg">
+                            <img src="./resources/media/chitietalbum/a8.jpg">
+                            <span>Cô gái đọc thông báo tại một khu tập thể cũ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content end -->

@@ -1,0 +1,282 @@
+<script type="text/javascript">
+    (function($) {
+        $('body').on('click', '.btn-icon-print', function () {
+            $('.content-reading').printThis({
+                importCSS: true
+            });
+            return false;
+        });
+
+        var minSize = 12;
+        var maxSize = 30;
+        var size = 14;
+        $('body').on('click', '.btn-icon-size', function () {
+            size += 1;
+            if (size > 30) {
+                size = 12;
+            }
+
+            $('.content-reading p').css('font-size', size +'px');
+        });
+
+        $('.input-color-picker').wheelColorPicker().on('colorchange', function() {
+            var color = $('.input-color-picker').val();
+            $('.content-reading, .content-reading p, .content-reading h2, .content-reading h3, .content-reading h4, .content-reading h5').css('color', color);
+        });
+
+        var content = $('.content-reading').text();
+
+        var checkInit = false;
+        $('body').on('click', '.btn-icon-play', function () {
+            if (!checkInit) {
+                responsiveVoice.speak(content, 'Vietnamese Female');
+                checkInit = true;
+            }
+
+            if(responsiveVoice.isPlaying()) {
+                responsiveVoice.pause();
+            } else {
+                responsiveVoice.resume();
+            }
+
+            return false;
+        });
+    })(jQuery);
+</script>
+
+<!-- page writing -->
+<div id="page-item-place-details">
+        <div class="place-details-content">
+            <!-- Menu Top  -->
+            <div class="container">
+                <div class="page-breadcrumb-wrap">
+                    <ol class="breadcrumb all-title-top">
+                        <li class="bread-back"><a href="#" data-pi-slide="page-item-slide-1"></a></li>
+                        <li class="home"><a href="#"><span>Trang chủ</span></a></li>
+                        <li class="item"><a href="#"><span>Chùa Tư Ân</span></a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Content  -->
+            <div class="container">
+                <div class="place-details-block scroll-enable">
+                    <div class="row">
+                        <div class="place-details-title col-md-offset-2 col-md-8">
+                            <h2>Chùa Tư Ân</h2>
+                        </div>
+                        <div class="place-details-icon-1 col-md-offset-5 col-md-5">
+                            <ul>
+                                <li>
+                                    <a class="btn-icon-print" href="#">
+                                        <img src="./assets/img/icon_print.svg">
+                                        <span>In bài</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-icon-color" href="#">
+                                        <img src="./assets/img/icon_text_zoom.svg">
+                                        <span>Màu chữ</span>
+                                        <input type="text" class="input-color-picker" data-wcp-format="css" data-wcp-sliders="wv" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-icon-size" href="#">
+                                        <img src="./assets/img/icon_text.svg">
+                                        <span>Cỡ chữ</span>
+                                    </a>
+                                </li>
+                                <li id="border-none">
+                                    <a class="btn-icon-play" href="#">
+                                        <img src="./assets/img/icon_play.svg">
+                                        <span>Đọc bài</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="place-details-icon-2 col-md-offset-2 col-md-5">
+                            <ul>
+                                <li>
+                                    <img src="./assets/img/icon_map_c.svg">
+                                    <span>440 Hồng Bàng, Phường 16, Quận 11, Thành phố Hồ Chí Minh</span>
+                                </li>
+                                <li class="place-details-icon-2-clock">
+                                    <img src="./assets/img/icon_clock.svg">
+                                    <span>08:00 tới 17:30</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-reading">
+                            <div class="place-details-image-1 col-md-12">
+                                <img src="./resources/diadiemthamquan/chitietdiadanh/a1.jpg">
+                            </div>
+                            <div class="place-details-content-1 col-md-offset-2 col-md-8">
+                                <h2>Lịch sử</h2>
+                                <p>Chùa Từ Ân còn có tên là Sắc Tứ Từ Ân Tự, được xây dựng vào thế kỷ 18 ở khu vực Chợ Đũi[1], mà vị trí nằm trong Công viên Tao Đàn, thuộc quận 1, Thành phố Hồ Chí Minh (Việt Nam) ngày nay [2]. Khi quân Pháp đánh chiếm Gia Định, chùa Từ Ân thì bị đốt cháy. Về sau (1870), một ngôi chùa Từ Ân mới lại được dựng lên ở Phú Lâm (thuộc quận 6, Thành phố Hồ Chí Minh ngày nay) để tiếp nối dòng đạo, đồng thời gìn giữ những hiện vật còn sót lại của ngôi chùa cũ.</p>
+                                <p>Vào khoảng năm Giáp Ngọ (1744), Thiền sư Phật Ý-Linh Nhạc (1725-1821, là người đem chi phái Lâm Tế dòng đạo Bổn Nguyên vào miền Nam Việt Nam trước tiên)[3], vâng lời thầy theo lớp người lưu dân từ Đồng Nai xuống phía Nam. Trên đường đi, nhà sư gặp một tăng sĩ không rõ họ tên, cùng lứa tuổi và họ đã kết thành huynh đệ. Đến nơi ở mới là làng Tân Lộc (có tư liệu viết là làng Hoạt Lộc hay xóm Chợ Đũi), hai nhà sư cùng khai phá rừng và dựng lên một am lá (khoảng năm 1744) thờ Phật. Vài năm sau, nhà sư vô danh kia tách ra lập am riêng, cách am cũ vài mươi mét, để tiện việc tu hành.</p>
+                            </div>
+                            <div class="place-details-image-2 col-md-12">
+                                <img src="./resources/diadiemthamquan/chitietdiadanh/a2.jpg">
+                            </div>
+                            <div class="place-details-content-2 col-md-offset-2 col-md-8">
+                                <h2>Chùa Từ Ân mới</h2>
+                                <p>Trải bao thăng trầm của lịch sử, năm Canh Ngọ (1870), một ngôi chùa Từ Ân mới đã được dựng lên ở Phú Lâm (thuộc quận 6, Thành phố Hồ Chí Minh ngày nay) để tiếp nối dòng đạo, đồng thời gìn giữ những hiện vật còn sót lại của ngôi chùa cũ. Hiện còn khá nhiều bức hoành và câu đối từ các nơi đem đến hiến cúng nhân ngày lạc thành chùa đã minh chứng cho điều ấy. Lúc bấy giờ, là thời của Hòa thượng Như Bằng-Thanh Ấn làm trụ trì.</p>
+                                <p>Mặc dù chùa Từ Ân mới có kiến trúc khá khiêm tốn so với trước đây, nhưng bên trong hiện vẫn còn lưu giữ được khá nhiều hiện vật quý, đó là:</p>
+                                <div class="col-md-12">
+                                    <img src="./assets/img/icon_way.svg">
+                                    <p>Chùa Từ Ân đã góp phần mang lại sự ổn định và phát triển tín ngưỡng Phật giáo tại vùng đất mới, qua sự có mặt khá sớm và gần như tiêu biểu nhất của mình tại vùng đất này.</p>
+                                </div>
+                                <p>-Hai bức hoành phi chạm gỗ, sơn son thiếp vàng: một đề là "Sắc Tứ Từ Ân Tự" và hai đề là "Quốc Ân Khải Tường Tự" (được đem về đây sau khi cả hai ngôi chùa đều bị nạn đao binh dưới thời Pháp thuộc).
+                                    -Các bài vị chạm khắc gỗ của các vị Tổ sư, trong số ấy, có cả những bài vị dành cho các vị Tổ khai sáng dòng đạo Bổn Nguyên từ Trung Quốc truyền sang. Đặc biệt, ở đây còn có bài vị của Hoàng cô bên bài vị của Thiền sư Thiệt Thành-Liễu Đạt.
+                                </p>
+                                <p>-Hàng trăm quyển kinh, luật, luận bằng chữ Hán và chữ Nôm của các thế kỷ trước. Trong số kho tàng đó, qúi giá nhất là bộ sách Ngũ gia tông phái ký toàn tập do Tăng cang chùa Thiên Mụ là Tiên Giác-Hải Tịnh chứng minh vào năm 1875. Đây là bộ sách (gồm 3 quyển) đầu tiên đề cập đến Phật giáo ở Gia Định và Nam Bộ[13].
+                                    Ngoài ra, ở đây còn có khá nhiều bức hoành phi và câu đối của các chùa từ nhiều nơi dâng tặng nhân ngày lạc thành chùa (1870), v.v...</p>
+                            </div>
+                        </div>
+                        <div class="place-details-brick col-md-offset-2 col-md-8">
+                            <div class="place-details-brick-1">
+                            </div>
+                            <div class="place-details-brick-left">
+                                <ul>
+                                    <li>
+                                        <a href="#"><img src="./assets/img/icon_facebook.svg" alt="" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="./assets/img/icon_twitter.svg" alt="" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="./assets/img/icon_in.svg" alt="" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="./assets/img/icon_email_w.svg" alt="" /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="place-details-brick-right">
+                                <span>
+                                    Số người đã xem
+                                </span>
+                                <p>
+                                    1.354
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="place-details-related col-md-12">
+                            <div class="place-details-related-brick"></div>
+                            <h2>CÁC ĐỊA DANH LIÊN QUAN</h2>
+                            <div class="place-details-content media col-md-6">
+                                <div class="media-left">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <img class="media-object" src="./resources/diadiemthamquan/chitietdiadanh/lq_a1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <h4 class="media-heading">Chùa Sùng Đức</h4>
+                                    </a>
+                                    <div class="place-details-content-right-brick"></div>
+                                    <div class="place-details-content-map">
+                                        <div class="place-details-map-1">
+                                            <img src="./assets/img/icon_map_c.svg" alt="" />
+                                        </div>
+                                        <div class="place-details-map-1 place-details-map-2">
+                                            <span class="">440 Hồng Bàng, Phường 16, Quận 11,
+                                                <p>Thành phố Hồ Chí Minh</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="place-details-content-clock">
+                                        <img src="./assets/img/icon_clock.svg" alt="" />
+                                        <span>08:00 tới 17:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="place-details-content media col-md-6">
+                                <div class="media-left">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <img class="media-object" src="./resources/diadiemthamquan/chitietdiadanh/lq_a3.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <h4 class="media-heading">Chùa Sùng Đức</h4>
+                                    </a>
+                                    <div class="place-details-content-right-brick"></div>
+                                    <div class="place-details-content-map">
+                                        <div class="place-details-map-1">
+                                            <img src="./assets/img/icon_map_c.svg" alt="" />
+                                        </div>
+                                        <div class="place-details-map-1 place-details-map-2">
+                                            <span class="">440 Hồng Bàng, Phường 16, Quận 11,
+                                                <p>Thành phố Hồ Chí Minh</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="place-details-content-clock">
+                                        <img src="./assets/img/icon_clock.svg" alt="" />
+                                        <span>08:00 tới 17:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="place-details-content media col-md-6">
+                                <div class="media-left">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <img class="media-object" src="./resources/diadiemthamquan/chitietdiadanh/lq_a2.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <h4 class="media-heading">Chùa Sùng Đức</h4>
+                                    </a>
+                                    <div class="place-details-content-right-brick"></div>
+                                    <div class="place-details-content-map">
+                                        <div class="place-details-map-1">
+                                            <img src="./assets/img/icon_map_c.svg" alt="" />
+                                        </div>
+                                        <div class="place-details-map-1 place-details-map-2">
+                                            <span class="">440 Hồng Bàng, Phường 16, Quận 11,
+                                                <p>Thành phố Hồ Chí Minh</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="place-details-content-clock">
+                                        <img src="./assets/img/icon_clock.svg" alt="" />
+                                        <span>08:00 tới 17:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="place-details-content media col-md-6">
+                                <div class="media-left">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <img class="media-object" src="./resources/diadiemthamquan/chitietdiadanh/lq_a4.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-pi-slide="page-item-slide-2" data-pi-type="place-detail" data-pi-id="1">
+                                        <h4 class="media-heading">Chùa Sùng Đức</h4>
+                                    </a>
+                                    <div class="place-details-content-right-brick"></div>
+                                    <div class="place-details-content-map">
+                                        <div class="place-details-map-1">
+                                            <img src="./assets/img/icon_map_c.svg" alt="" />
+                                        </div>
+                                        <div class="place-details-map-1 place-details-map-2">
+                                            <span class="">440 Hồng Bàng, Phường 16, Quận 11,
+                                                <p>Thành phố Hồ Chí Minh</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="place-details-content-clock">
+                                        <img src="./assets/img/icon_clock.svg" alt="" />
+                                        <span>08:00 tới 17:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- content end -->

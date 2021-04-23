@@ -1,0 +1,28 @@
+/*
+   -----------------------------------------------------
+     jQuery Custom Cursor v1.0   	 
+	 Â© 2020 Boom Apps
+
+	 This is licenced software, you can purchase licence here: https://codecanyon.net/user/boom-apps/portfolio
+
+   -----------------------------------------------------
+*/
+
+body.CustomCursor, body.CustomCursor * {  cursor:none!important;  }
+@media (max-width:1024px) {
+	body.CustomCursor, body.CustomCursor * {  cursor:auto!important;  }
+	body.CustomCursor .Cursor { display:none!important; }
+}
+
+body.CustomCursor .Cursor { display:none; pointer-events:none; }
+body.CustomCursor .Cursor.MouseMove { display:block; }
+body.CustomCursor .Cursor > span.First { /*mix-blend-mode: multiply;*/ z-index:9999; width: 30px; height: 30px; pointer-events: none; position:fixed; top:0; left:0;}
+body.CustomCursor .Cursor > span.First i { opacity:1; display:block; transition:.3s background ease, .3s transform ease, .3s border ease; margin:12px; width: 6px; height: 6px; pointer-events: none; border-radius:100%; background: #ffb629; box-sizing:border-box; border-radius:100%; }
+body.CustomCursor .Cursor > span.Second { /*mix-blend-mode: multiply;*/ z-index:9999; width: 30px; height: 30px; pointer-events: none; position:fixed; top:0; left:0; }
+body.CustomCursor .Cursor > span.Second i { display:block; transition:.3s background ease, .3s transform ease, .3s border ease, .3s opacity ease; width: 30px; height: 30px; pointer-events: none;  border-radius:100%; border:2px solid #ffb629; top:0; left:0; box-sizing:border-box;  }
+body.CustomCursor .Cursor.Hover > span.First i { opacity:1; background: #ff0700; }
+body.CustomCursor .Cursor.Hover > span.Second i { transform:scale(2); background:#FFB629; opacity:.5; border-width:1px; }
+
+body.CustomCursor.pp-viewing-page-item-event .Cursor > span.Second i {
+	border-color: #FFB629;
+}

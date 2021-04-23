@@ -1,0 +1,191 @@
+<script type="text/javascript">
+    var data = [
+        {
+            label: 'Hài lòng',
+            value: 85,
+            color: {
+                normal: '#0094FF',
+                active: '#0094FF',
+            }
+        },
+        {
+            label: 'Không hài lòng',
+            value: 10,
+            color: {
+                normal: '#FFB629',
+                active: '#FFB629',
+            }
+        },
+        {
+            label: 'Không đánh giá',
+            value: 5,
+            color: {
+                normal: '#A52EED',
+                active: '#A52EED',
+            }
+        }
+    ];
+
+    updateChart(data);
+
+    function updateChart(data) {
+        var chart = $(".satisfaction-rating-chart").jChart({
+            data: data,
+            appearance: {
+                type: 'pie',
+                baseColor: '#ddd',
+                gap: 0
+            },
+            callbacks: {
+                onInit() {
+
+                    var html = '';
+                    data.forEach(function (item) {
+                        html += '<li><span style="background: '+ item.color.normal +'"></span>'+'<div>'+ item.label + '</div>' +'<strong>'+ item.value +'%</strong></li>';
+                    });
+                    html = '<ul>'+ html + '</ul>';
+                    $('.satisfaction-rating-number').html(html);
+
+                },
+                onRefresh() {},
+                onSegmentMouseover() {},
+                onSegmentMouseout() {}
+            }
+        });
+    }
+</script>
+
+<div id="page-item-reflect" >
+    <div class="content-reflect">
+        <!-- Menu Top  -->
+        <div class="container">
+            <div class="page-breadcrumb-wrap">
+                <ol class="breadcrumb all-title-top">
+                    <li class="bread-back"><a href="#" data-pi-slide="page-item-slide-1"></a></li>
+                    <li class="home"><a href="#"><span>Trang chủ</span></a></li>
+                    <li class="item"><a href="#"><span>Đánh giá hài lòng</span></a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Content  -->
+        <div class="container">
+            <div class="satisfaction-rating-block scroll-enable">
+                <div class="satisfaction-rating-content row">
+                    <div class="satisfaction-rating-content-title col-md-12">
+                        <ul>
+                            <li class="satisfaction-rating-content-title-left"><h2>Đánh giá hài lòng</h2></li>
+                            <li class="satisfaction-rating-content-title-right"><a href="#">Đánh giá</a></li>
+                        </ul>
+                    </div>
+                    <div class="satisfaction-rating-block-1">
+                        <div class="satisfaction-rating-block-1-media col-md-3">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="./assets/img/icon_rate.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tổng lượt đánh giá</h4>
+                                    <span>28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="satisfaction-rating-block-1-media col-md-3">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="./assets/img/icon_like.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tổng lượt đánh giá</h4>
+                                    <span>28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="satisfaction-rating-block-1-media col-md-3">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="./assets/img/icon_dislike.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tổng lượt đánh giá</h4>
+                                    <span>28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="satisfaction-rating-block-1-media col-md-3">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="./assets/img/icon_stop.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tổng lượt đánh giá</h4>
+                                    <span>28</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="satisfaction-rating-block-left col-md-6">
+                        <div class="satisfaction-rating-block-left-top">
+                            <ul>
+                                <li>
+                                    <h3>Biểu đồ thống kê đánh giá</h3>
+                                </li>
+                                <li class="form-block">
+                                    <form class="form-inline">
+                                        <div class="form-group has-feedback">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Năm</span>
+                                                <select type="text" class="form-control" >
+                                                    <option>2020</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="satisfaction-rating-block-left-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="satisfaction-rating-chart"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="satisfaction-rating-number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="satisfaction-rating-block-right satisfaction-rating-block-left  col-md-6">
+                        <div class="satisfaction-rating-block-left-top">
+                            <ul>
+                                <li>
+                                    <h3>Tỉ lệ giải quyết đúng hạn</h3>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="satisfaction-rating-block-left-content-1">
+                            <h6>Quận 11 đã giải quyết</h6>
+                            <div class="ratio">
+                                <div class="ratio-1">
+                                        <span>80%<span>
+                                </div>
+                            </div>
+                            <span>Hồ sơ đúng hạn trong tháng 12 so với thắng trước</span>
+                            <p>Cập nhật vào lúc 00:00:00 24/01/2021</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
