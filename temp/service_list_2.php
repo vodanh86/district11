@@ -159,8 +159,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="content-right-table-pages col-md-offset-8 col-md-4">
-                                    <nav aria-label="Page navigation">
+                                <div class="content-right-table-pages col-md-offset-7 col-md-5">
+                                    <nav aria-label="Page navigation" class="text-right">
                                         <ul class="pagination pagination-service" data-pi-total-page="3">
                                             <li>
                                                 <a class="previous" href="#" aria-label="Previous">
