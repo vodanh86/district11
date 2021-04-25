@@ -1411,10 +1411,108 @@ $heightScroll: 80vh;
     /* Styles */
 }
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    /* Styles */
 
+@media only screen and (max-width: 767px) {
+  .page-loaded {
+    .doc-content {
+      .doc-form-search {
+        form {
+          .form-group input {
+            width: 100%;
+          }
+
+          .form-group #doc-date-main   {
+            width: 100%;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            margin-top: 15px;
+          }
+
+          .form-group #doc-desc  {
+            width: 35%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-news-result {
+  .media-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.photo-album-content .photo-alubum-carosel .owl-nav .owl-prev, .photo-album-content .photo-alubum-carosel .owl-nav .owl-next {
+  top: 44%
+}
+
+.page-loaded.pp-viewing-page-item-gallery .gallery-content .gallery-content-thumb .gallery-content-row .gallery-content-item img {
+  object-fit: cover;
+}
+
+.electronic-information-block .electronic-information-content-right .content-right-block-2 h4 a {
+  color: #1F1F1F;
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Styles */
+  .page-loaded {
+    .doc-content {
+      .doc-form-search {
+        form {
+          .form-group input {
+            width: 20%;
+          }
+  
+          .form-group #doc-date-main   {
+            width: 45%;
+
+            #doc-date-start {
+              width: 45%;
+            }
+
+            #doc-date-end {
+              width: 55%;
+            }
+          }
+  
+          .form-group #doc-desc  {
+            width: 35%;
+          }
+  
+          button#doc-search {
+            padding: 7px 15px 7px 35px;
+            background: url(../img/icon_search.svg) no-repeat 12px center #FFB629;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .page-loaded {
+    .place-details-content {
+      width: 100%;
+    }
+
+    &.pp-viewing-page-item-home .node-cell .btn-structure-scroll {
+      bottom: -20px;
+    }
+
+    .building-background img {
+     width: 400px;
+    }
+
+    .welcome-content .welcome-action .btn-home {
+      padding: 16px 25px;
+    }
+  }
 }
 
 /* iPads (landscape) ----------- */
